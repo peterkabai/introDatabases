@@ -24,27 +24,30 @@ create table patient (
 );
 
 create table has_doc (
-  doc_lic	   varchar(15) primary key,
-  med_rec_num  varchar(15) primary key,
-  foreign key(doc_lic) references doctor(doc_lic)
+  doc_lic	   varchar(15),
+  med_rec_num  varchar(15),
+  foreign key (doc_lic) references doctor (doc_lic),
+  primary key (doc_lic, med_rec_num)
 );
 
 create table has_prim_doc (
-  doc_lic	   varchar(15) primary key,
-  med_rec_num  varchar(15) primary key,
-  foreign key(doc_lic) references doctor(doc_lic)
+  doc_lic	   varchar(15),
+  med_rec_num  varchar(15),
+  foreign key (doc_lic) references doctor (doc_lic),
+  primary key (doc_lic, med_rec_num)
 );
 
 create table prescription (
-  doc_lic     varchar(15) primary key,
-  med_rec_num varchar(15) primary key,
-  trade_name  varchar(40) primary key,
+  doc_lic     varchar(15),
+  med_rec_num varchar(15),
+  trade_name  varchar(40),
   presc_date  varchar(10),
   store_num   int,
-  foreign key(doc_lic)     references doctor(doc_lic),
-  foreign key(med_rec_num) references patient(med_rec_num),
-  foreign key(trade_name)  references drug(trade_name),
-  foreign key(store_num)   references pharmacy(store_num)
+  foreign key (doc_lic)     references doctor (doc_lic),
+  foreign key (med_rec_num) references patient (med_rec_num),
+  foreign key (trade_name)  references drug (trade_name),
+  foreign key (store_num)   references pharmacy (store_num),
+  primary key (doc_lic, med_rec_num, trade_name)
 );
 
 create table drug (
@@ -57,7 +60,7 @@ create table drug (
 create table company (
 	comp_name varchar(40) primary key,
 	phone_num  varchar(15)
-)
+);
 
 create table pharmacy (
   store_num  int primary key,
