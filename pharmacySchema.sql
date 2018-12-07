@@ -69,15 +69,14 @@ create table pharmacy (
 
 create table contract (
   contract_id int primary key,
-  comp_name   varchar(20),
   trade_name  varchar(40),
   store_num   int,
   supervisor  varchar(40),
   start_date  varchar(20),
   end_date    varchar(20),
-  text        varchar(100),	
-  foreign key(comp_name) references company(comp_name),
-  foreign key(store_num) references pharmacy(store_num)
+  text        varchar(100),
+  foreign key (store_num) references pharmacy (store_num),
+  foreign key (trade_name) references drug (trade_name)
 );
 
 -- inserting doctors
@@ -123,6 +122,21 @@ insert into drug values ("AdvAir", "99% air 1% actual medication", "Pill Pills P
 	
 -- insert company
 insert into company values ("Drugs Inc.", "(408)456-9289");
-insert into company values ("Pills Pills Pills", "1-800-PIL-PILL");
-insert into company values ("Meds 4 Cheap", "1-800-227-8255");
+insert into company values ("Pills Pills Pills", "(800)PIL-PILL");
+insert into company values ("Meds 4 Cheap", "(800)227-8255");
+
+-- insert pharmacy
+insert into pharmacy values (123, "Walgreens", "190 Walnut Ave, CA", "(800)987-6574");
+insert into pharmacy values (900, "CVS", "2000 Circle Way, NY", "(800)456-1234");	
+insert into pharmacy values (420, "Target", "45 Market Parkway", "(800)400-2000");		
+insert into pharmacy values (999, "Walmart", "100 Walmart Lane", "(408)767-9067");	
+	
+-- insert contracts
+insert into contract values (00023423, "ChocoLax", 123, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00087475, "ChocoLax", 900, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00059400, "ChocoLax", 420, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00034939, "Naproxen", 123, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00003986, "Naproxen", 900, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00009756, "Naproxen", 420, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+
 
