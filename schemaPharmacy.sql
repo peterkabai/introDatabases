@@ -1,7 +1,6 @@
 --------------------------------------------------------------------
 --
 -- Drug Store Schema
--- Webb Kabai Awesome Database Consultants LLC
 --
 --------------------------------------------------------------------
 
@@ -80,5 +79,16 @@ create table contract (
   foreign key(comp_name) references company(comp_name),
   foreign key(store_num) references pharmacy(store_num)
 );
+
+
+-- inserting doctors
+insert into doctor values (182748593, "Brooke Le Femur", "Orthopeadist", 10);
+insert into doctor values (992394837, "Ihav Lootse Paine", "Colon and Rectal Surgeon", 20);
+insert into doctor values (345687787, "Stichem Wells", "General Surgeon", 50);
+insert into doctor values (394938294, "Makyou Feelgood", "Anesthesiologist", 30);
+insert into doctor values (349000878, "Pat Healerman", "General Surgeon", 10);
+insert into doctor values (234468765, "Yo No Hart", "Cardiac Surgeon", 110);
+
+
 
 
