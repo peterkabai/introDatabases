@@ -13,11 +13,10 @@ create table doctor (
 
 create table patient (
   med_rec_num  varchar(15) primary key,
-  doc_lic      varchar(11),
   pat_name     varchar(40),
   age          int(130),
   addr_city    varchar(20),
-  addr_state   varchar(20),
+  addr_state   varchar(2),
   addr_street  varchar(20),
   addr_zip     int 
 );
@@ -58,7 +57,7 @@ create table drug (
 
 create table company (
 	comp_name varchar(40) primary key,
-	phone_num  varchar(15)
+	phone_num varchar(15)
 );
 
 create table pharmacy (
@@ -71,6 +70,7 @@ create table pharmacy (
 create table contract (
   contract_id int primary key,
   comp_name   varchar(20),
+  trade_name  varchar(40),
   store_num   int,
   supervisor  varchar(40),
   start_date  varchar(20),
@@ -80,7 +80,6 @@ create table contract (
   foreign key(store_num) references pharmacy(store_num)
 );
 
-
 -- inserting doctors
 insert into doctor values (182748593, "Brooke Le Femur", "Orthopeadist", 10);
 insert into doctor values (992394837, "Ihav Lootse Paine", "Colon and Rectal Surgeon", 20);
@@ -89,6 +88,41 @@ insert into doctor values (394938294, "Makyou Feelgood", "Anesthesiologist", 30)
 insert into doctor values (349000878, "Pat Healerman", "General Surgeon", 10);
 insert into doctor values (234468765, "Yo No Hart", "Cardiac Surgeon", 110);
 
+-- insert patients
+insert into patient values (34948, "Neil Patrick Harris", 45, "Los Angeles", "CA", "123 Main Street", 90210);
+insert into patient values (23423, "Donald Trump", 79, "Washington", "DC", "1500 Pensylvania Ave.", 20001);
+insert into patient values (12232, "Matt Webbster", 18, "Gilroy", "CA", "Gilroy Crossing 123", 95020);
+insert into patient values (98723, "Pita Kabi", 12, "Geelroi", "CA", "Corny Lane 1111", 95404);
+insert into patient values (12323, "Santa Clause", 99, "North Pole", "AK", "Alaska Hwy 100", 98893);
+insert into patient values (12350, "Dwayne Jhonson", 39, "Hollywood", "CA", "Magnolia Dr.", 90211);	
+insert into patient values (86900, "Mark Zuckerberg", 30, "Menlo Park", "CA", "Facebook Ln.", 94404);
+insert into patient values (99488, "Stuart Little", 3, "Small Ville", "FL", "500 Mouse St. SW", 68694);
 
-
+-- insert patient and primary care doctor relationship
+insert into has_prim_doc values (182748593, 34948);
+insert into has_prim_doc values (182748593, 23423);
+insert into has_prim_doc values (394938294, 12232);
+insert into has_prim_doc values (394938294, 98723);
+insert into has_prim_doc values (234468765, 12323);
+insert into has_prim_doc values (234468765, 12350);	
+insert into has_prim_doc values (234468765, 86900);
+insert into has_prim_doc values (234468765, 99488);
+	
+-- insert patient and doctor relationship
+insert into has_doc values (349000878, 34948);
+insert into has_doc values (234468765, 34948);
+	
+-- insert drugs
+insert into drug values ("ChocoLax", "50% benzine 50% chocolate", "Drugs Inc.");
+insert into drug values ("Naproxen ", "10% caffine 90% placebo", "Drugs Inc.");
+insert into drug values ("Flonase", "40% flow 20% saline solution, 40% vaporizer", "Drugs Inc.");
+insert into drug values ("Acetaminophen", "90% acetate 10% inophen", "Drugs Inc.");
+insert into drug values ("Ibuprophen", "40% ibuteral 20% magnesium, 40% inophen", "Pill Pills Pills");
+insert into drug values ("Painstop Ultra", "50% stopping power 50% extra strength", "Pill Pills Pills");
+insert into drug values ("AdvAir", "99% air 1% actual medication", "Pill Pills Pills");
+	
+-- insert company
+insert into company values ("Drugs Inc.", "(408)456-9289");
+insert into company values ("Pills Pills Pills", "1-800-PIL-PILL");
+insert into company values ("Meds 4 Cheap", "1-800-227-8255");
 
