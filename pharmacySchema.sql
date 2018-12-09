@@ -36,23 +36,30 @@ create table has_prim_doc (
 );
 
 create table prescription (
+  presc_num   int(15),
   doc_lic     varchar(15),
   med_rec_num varchar(15),
-  trade_name  varchar(40),
   presc_date  varchar(10),
-  store_num   int,
+  store_num   int(15),
   foreign key (doc_lic)     references doctor (doc_lic),
   foreign key (med_rec_num) references patient (med_rec_num),
-  foreign key (trade_name)  references drug (trade_name),
   foreign key (store_num)   references pharmacy (store_num),
-  primary key (doc_lic, med_rec_num, trade_name)
+  primary key (presc_num)
 );
 
 create table drug (
   trade_name varchar(40) primary key,
   formula    varchar(40),
   comp_name  varchar(20),
-  foreign key(comp_name) references company(comp_name)
+  foreign key (comp_name) references company (comp_name)
+);
+
+create table drugs_in_presc (
+  presc_num  int(15),
+  trade_name varchar(40),
+  foreign key (presc_num)  references prescription (presc_num),
+  foreign key (trade_name) references drug (trade_name)
+  primary key (presc_num, trade_name)
 );
 
 create table company (
@@ -138,5 +145,17 @@ insert into contract values (00059400, "ChocoLax", 420, "Super Mc. Visor", "9/9/
 insert into contract values (00034939, "Naproxen", 123, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 insert into contract values (00003986, "Naproxen", 900, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 insert into contract values (00009756, "Naproxen", 420, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00034344, "AdvAir", 999, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 
+-- prescriptions
+insert into prescription values (000000001, 349000878, 34948, "5/10/2018", 123);
+insert into prescription values (000000002, 394938294, 98723, "5/15/2018", 420);
+insert into prescription values (000000003, 182748593, 23423, "5/20/2018", 900);
 
+-- insert drugs for prescriptions
+insert into drugs_in_presc values (000000001, "ChocoLax");
+insert into drugs_in_presc values (000000001, "Naproxen");
+insert into drugs_in_presc values (000000002, "Naproxen");
+insert into drugs_in_presc values (000000003, "ChocoLax");
+insert into drugs_in_presc values (000000003, "AdvAir");
+	
