@@ -1,6 +1,6 @@
 --------------------------------------------------------------------
 --
--- Drug Store Schema
+-- Pharmacy Schema
 --
 --------------------------------------------------------------------
 
@@ -120,17 +120,19 @@ insert into has_doc values (234468765, 34948);
 	
 -- insert drugs
 insert into drug values ("ChocoLax", "50% benzine 50% chocolate", "Drugs Inc.");
-insert into drug values ("Naproxen ", "10% caffine 90% placebo", "Drugs Inc.");
+insert into drug values ("Naproxen", "10% caffine 90% placebo", "Drugs Inc.");
 insert into drug values ("Flonase", "40% flow 20% saline solution, 40% vaporizer", "Drugs Inc.");
 insert into drug values ("Acetaminophen", "90% acetate 10% inophen", "Drugs Inc.");
 insert into drug values ("Ibuprophen", "40% ibuteral 20% magnesium, 40% inophen", "Pill Pills Pills");
 insert into drug values ("Painstop Ultra", "50% stopping power 50% extra strength", "Pill Pills Pills");
 insert into drug values ("AdvAir", "99% air 1% actual medication", "Pill Pills Pills");
+insert into drug values ("Oxycontin", "Oxycodone", "Purdue Pharma");
 	
 -- insert company
 insert into company values ("Drugs Inc.", "(408)456-9289");
 insert into company values ("Pills Pills Pills", "(800)PIL-PILL");
 insert into company values ("Meds 4 Cheap", "(800)227-8255");
+insert into company values ("Purdue Pharma", "888-726-7535");
 
 -- insert pharmacy
 insert into pharmacy values (123, "Walgreens", "190 Walnut Ave, CA", "(800)987-6574");
@@ -146,16 +148,21 @@ insert into contract values (00034939, "Naproxen", 123, "Super Mc. Visor", "4/4/
 insert into contract values (00003986, "Naproxen", 900, "Super Mc. Visor", "4/4/2018", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 insert into contract values (00009756, "Naproxen", 420, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 insert into contract values (00034344, "AdvAir", 999, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
+insert into contract values (00099093, "Oxycontin", 999, "Super Mc. Visor", "9/9/2017", "4/4/2019", "This contract stipulates the facts of the contract agreement");
 
 -- prescriptions
 insert into prescription values (000000001, 349000878, 34948, "5/10/2018", 123);
 insert into prescription values (000000002, 394938294, 98723, "5/15/2018", 420);
 insert into prescription values (000000003, 182748593, 23423, "5/20/2018", 900);
-
+insert into prescription values (000000004, 394938294, 12323, "5/20/2018", 999);
+insert into prescription values (000000005, 234468765, 12323, "5/20/2018", 999);
+	
 -- insert drugs for prescriptions
 insert into drugs_in_presc values (000000001, "ChocoLax");
 insert into drugs_in_presc values (000000001, "Naproxen");
 insert into drugs_in_presc values (000000002, "Naproxen");
 insert into drugs_in_presc values (000000003, "ChocoLax");
 insert into drugs_in_presc values (000000003, "AdvAir");
+insert into drugs_in_presc values (000000004, "Oxycontin");
+insert into drugs_in_presc values (000000005, "Oxycontin");
 	
