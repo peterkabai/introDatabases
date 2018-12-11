@@ -40,7 +40,6 @@ where (presc_num, trade_name) not in
 (select presc_num, trade_name
 from drugs_in_presc
 natural join prescription
-natural join pharmacy
 natural join contract);
 
 -- List the patients who have the same drug prescribed by multiple doctors:
