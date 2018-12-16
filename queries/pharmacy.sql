@@ -1,8 +1,4 @@
---------------------------------------------------------------------
---
--- Pharmacy Queries
---
---------------------------------------------------------------------
+.read ../schemas/pharmacy.sql
 
 -- For each doctor, show the drug manuafaturer who's 
 -- drugs are presscribed most often:

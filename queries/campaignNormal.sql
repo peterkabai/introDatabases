@@ -1,4 +1,4 @@
-.read schemaCampaignNormal.sql
+.read ../schemas/campaignNormal.sql
 
 -- Create a view 'c_summary' summarizing campaign contributions,
 -- with four attributes: cand_name, contbr_name, amount, and zip.  

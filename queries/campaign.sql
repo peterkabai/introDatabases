@@ -1,4 +1,4 @@
-.read schemaCampaign.sql
+.read ../schemas/campaign.sql
 
 -- How many contributions are contained in the data?
 select '-- 1. ';

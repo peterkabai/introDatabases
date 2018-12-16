@@ -1,4 +1,4 @@
-.read schemaCensus.sql
+.read ../schemas/census.sql
 
 -- Show the age of the males in the data set
 select '-- 1. ';

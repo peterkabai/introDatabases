@@ -1,4 +1,4 @@
-.read schemaCourses.sql
+.read ../schemas/courses.sql
 
 -- Show the number of prereqs for each course, by course_id and title.
 -- Sort by descending number of prereqs and then ascending course_id.
