@@ -1,5 +1,5 @@
 -- Start up SQLite and turn on foreign key constraint checking: 
--- PRAGMA foreign_keys = ON;
+pragma foreign_keys = on;
 
 -- Create a table actor, with fields 'name' and 'birthyear'
 create table actor (
