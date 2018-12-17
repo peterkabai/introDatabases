@@ -1,4 +1,5 @@
-.read ../schemas/census.sql
+-- Read in the data and records
+.read ../schemas/courses.sql
 
 -- What is the highest average age for any education level?  
 select round(max(avgage)) 
